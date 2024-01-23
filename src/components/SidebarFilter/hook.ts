@@ -5,11 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { formValuesSchema } from '@/components/SidebarFilter/schema.ts'
 import { filterDefaultValues } from '@/components/SidebarFilter/data.ts'
 import { FilterValues } from '@/components/SidebarFilter/types.ts'
-import { useAppDispatch } from '@/store/hooks.ts'
 
 export const useSidebarFilter = () => {
 	const [queryParams, setQueryParams] = useSearchParams()
-	const dispatch = useAppDispatch()
 
 	const form = useForm({
 		defaultValues: filterDefaultValues,

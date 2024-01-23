@@ -8,7 +8,18 @@ export const Error = () => {
 			<h1>Oops!</h1>
 			<p>Sorry, an unexpected error has occurred.</p>
 			<p>
-				<i>{error?.statusText || error?.message}</i>
+				{
+					typeof error === 'object' &&
+					error != null &&
+					('statusText' in error &&
+						typeof error.statusText === 'string' &&
+						<i>{error.statusText}</i>
+						||
+						'message' in error &&
+						typeof error.message === 'string' &&
+						<i>{error.message}</i>
+					)
+				}
 			</p>
 		</div>
 	)

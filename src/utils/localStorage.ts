@@ -12,7 +12,11 @@ export const localStorageGet = <T, >(key: string): T | null => {
 		console.log(error)
 		toast({
 			variant: 'destructive',
-			title: error?.message || 'Error on local storage',
+			title: typeof error === 'object' &&
+				error != null &&
+				'message' in error &&
+				typeof error.message == 'string' &&
+				error?.message || 'Error on local storage',
 		})
 		return null
 	}
@@ -25,7 +29,11 @@ export const localStorageSet = (key: string, value: unknown): void => {
 		console.log(error)
 		toast({
 			variant: 'destructive',
-			title: error?.message || 'Error on local storage',
+			title: typeof error === 'object' &&
+				error != null &&
+				'message' in error &&
+				typeof error.message == 'string' &&
+				error?.message || 'Error on local storage',
 		})
 	}
 }
@@ -39,7 +47,11 @@ export const localStorageRemove = <T, >(key: string): T | null => {
 		console.log(error)
 		toast({
 			variant: 'destructive',
-			title: error?.message || 'Error on local storage',
+			title: typeof error === 'object' &&
+				error != null &&
+				'message' in error &&
+				typeof error.message == 'string' &&
+				error?.message || 'Error on local storage',
 		})
 		return null
 	}
@@ -52,7 +64,11 @@ export const localStorageClear = (): void => {
 		console.log(error)
 		toast({
 			variant: 'destructive',
-			title: error?.message || 'Error on local storage',
+			title: typeof error === 'object' &&
+				error != null &&
+				'message' in error &&
+				typeof error.message == 'string' &&
+				error?.message || 'Error on local storage',
 		})
 	}
 }
