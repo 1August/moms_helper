@@ -1,5 +1,5 @@
 import { Heading1 } from '@/components/Heading1'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+import { CardContent, CardDescription, CardHeader, CardInteractive, CardTitle } from '@/components/ui/card.tsx'
 import { Link } from 'react-router-dom'
 import { cn } from '@/utils/utils.ts'
 
@@ -25,13 +25,19 @@ export const Pills = () => {
 		<main>
 			<div>
 				<Heading1>Pills</Heading1>
-				<div className={cn('mt-8 grid grid-cols-3 gap-4')}>
+				<div className={cn('mt-4 grid grid-cols-3 gap-4')}>
 					{
 						pills.map(pill => (
-							<Card key={pill.id}>
+							<CardInteractive
+								key={pill.id}
+								className={cn('relative')}
+							>
 								<CardHeader>
 									<CardTitle>
-										<Link to={`/services/pills/${pill.id}`}>
+										<Link
+											to={`/services/pills/${pill.id}`}
+											className={cn('static', 'after:absolute after:inset-0')}
+										>
 											{pill.title}
 										</Link>
 									</CardTitle>
@@ -41,7 +47,7 @@ export const Pills = () => {
 										{pill.description}
 									</CardDescription>
 								</CardContent>
-							</Card>
+							</CardInteractive>
 						))
 					}
 				</div>

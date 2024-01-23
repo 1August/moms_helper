@@ -1,14 +1,14 @@
 import { Route } from 'react-router-dom'
-import { Clean } from '@/layout/Clean'
 import { AppSuspense } from '@/components/AppSuspense'
 import { AccountLazy } from '@/pages/Account/lazy.ts'
 import { Error } from '@/pages/Error'
+import { Simple } from '@/layout/Simple'
 
 export const useAccountRoutes = () => {
 	return (
 		<Route
 			path={'/account'}
-			Component={Clean}
+			Component={Simple}
 		>
 			<Route
 				index={true}

@@ -4,25 +4,33 @@ import { Error } from '@/pages/Error'
 import { AppSuspense } from '@/components/AppSuspense'
 import { PillsLazy } from '@/pages/Pills/lazy.ts'
 import { PillsItemLazy } from '@/pages/PillsItem/lazy.ts'
+import { Simple } from '@/layout/Simple'
 
 export const useServicesRoutes = () => {
 	return (
 		<Route
 			path={'/services'}
-			Component={Shoppy}
 		>
 			<Route
 				path={'pills'}
 				errorElement={<Error />}
 			>
 				<Route
-					index={true}
-					element={<AppSuspense><PillsLazy /></AppSuspense>}
-				/>
+					Component={Shoppy}
+				>
+					<Route
+						index={true}
+						element={<AppSuspense><PillsLazy /></AppSuspense>}
+					/>
+				</Route>
 				<Route
-					path={':id'}
-					element={<AppSuspense><PillsItemLazy /></AppSuspense>}
-				/>
+					Component={Simple}
+				>
+					<Route
+						path={':id'}
+						element={<AppSuspense><PillsItemLazy /></AppSuspense>}
+					/>
+				</Route>
 			</Route>
 		</Route>
 	)

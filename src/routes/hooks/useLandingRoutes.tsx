@@ -1,14 +1,14 @@
 import { Route } from 'react-router-dom'
-import { Simple } from '@/layout/Simple'
+import { Landing } from '@/layout/Landing'
 import { AppSuspense } from '@/components/AppSuspense'
 import { HomeLazy } from '@/pages/Home/lazy.ts'
 import { Error } from '@/pages/Error'
 
-export const useBaseRoutes = () => {
+export const useLandingRoutes = () => {
 	return (
 		<Route
 			path={'/'}
-			Component={Simple}
+			Component={Landing}
 		>
 			<Route
 				index={true}

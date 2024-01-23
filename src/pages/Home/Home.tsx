@@ -4,7 +4,7 @@ import { cn } from '@/utils/utils.ts'
 import banner from '../../assets/banana.jpg'
 import { useAppSelector } from '@/store/hooks.ts'
 import { useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+import { CardContent, CardDescription, CardHeader, CardInteractive, CardTitle } from '@/components/ui/card.tsx'
 import { Link } from 'react-router-dom'
 import { Heading2 } from '@/components/Heading2'
 import { Heading3 } from '@/components/Heading3'
@@ -55,7 +55,10 @@ export const Home = () => {
 					<div className={cn('grid grid-cols-4 gap-4 mt-4')}>
 						{
 							services.map(service => (
-								<Card className={cn('relative hover:shadow-md hover:border-gray-500')}>
+								<CardInteractive
+									key={service.label}
+									className={cn('relative')}
+								>
 									<CardHeader>
 										<CardTitle>
 											<img
@@ -67,15 +70,17 @@ export const Home = () => {
 									</CardHeader>
 									<CardContent>
 										<CardDescription>
-											<Heading3>
-												<Link to={service.url}
-															className={cn('static after:absolute after:inset-0 text-primary', 'hover:underline')}>
+											<Heading3 className={cn('text-center')}>
+												<Link
+													to={service.url}
+													className={cn('static text-primary', 'after:absolute after:inset-0', 'hover:underline')}
+												>
 													{service.label}
 												</Link>
 											</Heading3>
 										</CardDescription>
 									</CardContent>
-								</Card>
+								</CardInteractive>
 							))
 						}
 					</div>

@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react'
 import { cn } from '@/utils/utils.ts'
+import { PropsWithChildren } from 'react'
 
 export interface SectionProps {
 	withMarginTop?: boolean
