@@ -32,7 +32,7 @@ export const CreateCategory = () => {
 
 	const onValid: SubmitHandler<NewCategory> = (data) => {
 		mutateAsync(data)
-			.then((value) => {
+			.then(() => {
 				toast({
 					title: 'Success',
 					description: 'Category created',

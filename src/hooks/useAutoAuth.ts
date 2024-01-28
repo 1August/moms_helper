@@ -28,7 +28,7 @@ export const useAutoAuth = () => {
 			const user = decodeToken(token) as DecodedUserToken
 			dispatch(setAuth({
 				user: {
-					id: user.id,
+					_id: user._id,
 					email: user.email,
 				},
 				token,

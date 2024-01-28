@@ -5,7 +5,7 @@ import { User, UserToken } from '@/types/User.ts'
 
 export const initialState: AuthSliceState = {
 	user: {
-		id: '',
+		_id: '',
 		email: '',
 		// roles: [],
 	},
