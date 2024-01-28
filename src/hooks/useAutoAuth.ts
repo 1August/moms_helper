@@ -13,7 +13,6 @@ export const useAutoAuth = () => {
 	useEffect(() => {
 		const validateToken = () => {
 			const token = localStorageGet<string>('token')
-			console.log({ token })
 			if (token == null) {
 				return
 			}
@@ -27,7 +26,6 @@ export const useAutoAuth = () => {
 			}
 
 			const user = decodeToken(token) as DecodedUserToken
-			console.log({ decodedUser: user })
 			dispatch(setAuth({
 				user: {
 					id: user.id,

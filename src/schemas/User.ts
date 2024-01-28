@@ -9,12 +9,12 @@ export const rolesShape = z.array(roleShape)
 export const tokenShape = z.string()
 
 export const UserSchema = z.object({
-	id: idShape,
+	_id: idShape,
 	email: emailShape,
 	// roles: rolesShape,
 })
 export const UserTokenSchema = tokenShape
 export const DecodedUserTokenSchema = z.object({
-	id: idShape,
+	_id: idShape,
 	email: emailShape,
 })

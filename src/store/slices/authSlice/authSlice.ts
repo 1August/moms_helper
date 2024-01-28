@@ -12,29 +12,23 @@ export const initialState: AuthSliceState = {
 	token: '',
 }
 
-const authSlice = createAppSlice({
-		name: 'authSlice',
-		initialState,
-		reducers: (create) => ({
-			setAuth: create.reducer((state, action: PayloadAction<AuthSliceState>) => {
-				state.user.id = action.payload.user.id
-				state.user.email = action.payload.user.email
-				state.token = action.payload.token
-			}),
-			setUser: create.reducer((state, action: PayloadAction<User>) => {
-				state.user.id = action.payload.id
-				state.user.email = action.payload.email
-			}),
-			setToken: create.reducer((state, action: PayloadAction<UserToken>) => {
-				state.token = action.payload
-			}),
+export const authSlice = createAppSlice({
+	name: 'authSlice',
+	initialState,
+	reducers: (create) => ({
+		setAuth: create.reducer((state, action: PayloadAction<AuthSliceState>) => {
+			state.user._id = action.payload.user._id
+			state.user.email = action.payload.user.email
+			state.token = action.payload.token
 		}),
-	},
-)
+		setUser: create.reducer((state, action: PayloadAction<User>) => {
+			state.user._id = action.payload._id
+			state.user.email = action.payload.email
+		}),
+		setToken: create.reducer((state, action: PayloadAction<UserToken>) => {
+			state.token = action.payload
+		}),
+	}),
+})
 
-export const {
-	setUser,
-	setToken,
-	setAuth,
-} = authSlice.actions
-export default authSlice.reducer
+export const { setUser, setToken, setAuth } = authSlice.actions

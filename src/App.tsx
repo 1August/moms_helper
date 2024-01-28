@@ -6,9 +6,7 @@ import { useAutoAuth } from '@/hooks/useAutoAuth.ts'
 function App() {
 	useAutoAuth()
 
-	return (
-		<RouterProvider router={router} />
-	)
+	return <RouterProvider router={router} />
 }
 
 export default App

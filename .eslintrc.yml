@@ -5,6 +5,7 @@ env:
     - eslint:recommended
     - plugin:@typescript-eslint/recommended
     - plugin:react/recommended
+    - plugin:@tanstack/eslint-plugin-query/recommended
     - prettier
 
 parser: @typescript-eslint/parser

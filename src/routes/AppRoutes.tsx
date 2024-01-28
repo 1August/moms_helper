@@ -3,6 +3,7 @@ import { useLandingRoutes } from '@/routes/hooks/useLandingRoutes.tsx'
 import { useAuthRoutes } from '@/routes/hooks/useAuthRoutes.tsx'
 import { useAccountRoutes } from '@/routes/hooks/useAccountRoutes.tsx'
 import { useServicesRoutes } from '@/routes/hooks/useServicesRoutes.tsx'
+import { Error } from '@/pages/Error'
 
 const landingRoutes = useLandingRoutes()
 const authRoutes = useAuthRoutes()
@@ -16,6 +17,10 @@ export const router = createBrowserRouter(
 			{authRoutes}
 			{accountRoutes}
 			{servicesRoutes}
+			<Route
+				path={'*'}
+				element={<Error />}
+			/>
 		</Route>,
 	), {
 		future: {
